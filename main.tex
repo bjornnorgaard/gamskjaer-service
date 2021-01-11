@@ -1,0 +1,60 @@
+\documentclass[a4paper,10pt]{letter}
+
+\usepackage[zw32010,crossmark]{ticket}
+
+\usepackage{graphicx}
+\usepackage{color}
+
+\renewcommand{\ticketdefault}{%
+}
+
+\newcommand{\vcardfront}[9]{\ticket{%
+    \put(0, 3){\includegraphics[width=30mm,angle=0,origin=b1]{pictures/logo}}
+    \put(32,46){\bfseries \Large #1}   
+    \put(32,41){#2}
+ 	\put(32,37){#3}
+	\put(32,33){#4}
+	\put(32,25){\bfseries \large #5}
+	\put(32,24){\color{black}\line(1,0){40}}
+	\put(32,21){#6}
+	\put(32,17){#7}	
+	\put(32,11){#8}	
+	\put(32, 7){#9}
+ }
+}
+
+\newcommand{\vcardback}[1]{\ticket{%
+    \put( 15,30){\small%
+        \begin{minipage}[t]{50mm}%
+          {#1}\hss%
+        \end{minipage}}%
+}}
+
+\newcounter{numcards}
+
+\begin{document}
+\sffamily
+
+\whiledo{\thenumcards<10}{%
+  \stepcounter{numcards}%
+  \vcardfront
+	  {Gamskjær Service}
+	  {Alt arbejde inden for}
+	  {Entreprenør $\cdot$ Skovarbejde $\cdot$ Kloak} 
+	  {Hårde hvidevarer $\cdot$ Køleanlæg}
+	  {John Gamskjær}
+	  {Strandetvej 35 Lund 7840 Højslev}
+	  {tlf: 97539756 mobil: 20287156}
+	  {jgamskjaer@gmail.com}
+	  {www.gamskjær-service.dk}
+}
+
+\setcounter{numcards}{0}
+
+\whiledo{\thenumcards<10}{%
+  \stepcounter{numcards}%
+  \vcardback{
+  	\bfseries \large Har de specielle\\ ønsker/opgaver så ring og spørg.
+  }
+}
+\end{document}
