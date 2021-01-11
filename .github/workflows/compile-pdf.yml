@@ -25,7 +25,8 @@ jobs:
           
       - name: Compile LateX        
         uses: vinay0410/tectonic-action@v1.1.2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           tex_path: main.tex
-          # String stating whether to push output PDF, PDF will only be pushed in case of "yes"
           push: yes
